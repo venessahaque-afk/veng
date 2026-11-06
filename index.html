@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Website</title>
+
+  <style>
+    /* ===== PENGATURAN DASAR ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8fc;
+      color: #44334f;
+      line-height: 1.7;
+    }
+
+    :root {
+      --pink: #edb9d9;
+      --pink-light: #fff0f8;
+      --blue: #b9d8f5;
+      --blue-dark: #648ebd;
+      --purple: #765879;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px #e9d8e5;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--purple);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav a:hover {
+      color: var(--blue-dark);
+    }
+
+    /* ===== HERO / HALAMAN DEPAN ===== */
+    .hero {
+      min-height: 520px;
+      padding: 90px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      background: linear-gradient(120deg, #ffe8f4, #e3f1ff);
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin: 15px 0;
+    }
+
+    .hero h2 {
+      color: var(--blue-dark);
+      font-size: 24px;
+    }
+
+    .hero p {
+      margin: 18px 0 25px;
+      color: #66566d;
+    }
+
+    .hero-image {
+      width: 260px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 45% 45% 20px 20px;
+      border: 7px solid white;
+      box-shadow: 0 8px 25px #c9a9c9;
+    }
+
+    .tag {
+      display: inline-block;
+      background: white;
+      color: var(--purple);
+      padding: 7px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 22px;
+      margin: 5px 5px 5px 0;
+      border-radius: 30px;
+      background: var(--pink);
+      color: #49354b;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--blue);
+      transform: translateY(-3px);
+    }
+
+    /* ===== BAGIAN UMUM ===== */
+    section {
+      padding: 75px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      color: var(--purple);
+    }
+
+    .section-title p {
+      color: #89778d;
+    }
+
+    /* ===== THREE THINGS ABOUT ME ===== */
+    .things {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .thing-card {
+      background: white;
+      padding: 28px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 5px 18px #eadce9;
+      transition: 0.3s;
+    }
+
+    .thing-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .thing-card .emoji {
+      font-size: 35px;
+    }
+
+    .thing-card h3 {
+      margin: 12px 0 5px;
+      color: var(--blue-dark);
+    }
+
+    /* ===== MY LINKS ===== */
+    .links {
+      background: var(--pink-light);
+    }
+
+    .link-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .link-card {
+      background: white;
+      text-align: center;
+      padding: 25px 15px;
+      border-radius: 18px;
+      box-shadow: 0 4px 15px #e8d7e7;
+      transition: 0.3s;
+    }
+
+    .link-card:hover {
+      background: #eaf4ff;
+      transform: translateY(-5px);
+    }
+
+    .link-card .emoji {
+      font-size: 32px;
+    }
+
+    .link-card h3 {
+      margin: 10px 0;
+    }
+
+    .link-card span {
+      color: var(--blue-dark);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* ===== ABOUT ME ===== */
+    .about-box {
+      max-width: 850px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 22px;
+      box-shadow: 0 5px 20px #eadce9;
+    }
+
+    .about-box p {
+      margin-bottom: 18px;
+    }
+
+    .profile-data {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .profile-data div {
+      padding: 13px;
+      background: #f5effa;
+      border-radius: 12px;
+    }
+
+    .profile-data strong {
+      color: var(--blue-dark);
+      display: block;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: linear-gradient(90deg, #f6d8e9, #dcecff);
+      color: var(--purple);
+    }
+
+    /* ===== TAMPILAN HP ===== */
+    @media (max-width: 700px) {
+      nav {
+        padding: 15px 5%;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      nav ul {
+        gap: 13px;
+        font-size: 12px;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 55px 6%;
+      }
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+      .hero-image {
+        width: 210px;
+        height: 230px;
+      }
+
+      .things,
+      .link-container {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-data {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">my.portfolio ♡</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#things">About</a></li>
+      <li><a href="#links">My Links</a></li>
+      <li><a href="#profile">Profile</a></li>
+    </ul>
+  </nav>
+
+  <!-- HALAMAN DEPAN -->
+  <header class="hero" id="home">
+    <div class="hero-text">
+      <span class="tag">WELCOME TO MY WEBSITE ♡</span>
+
+      <h1>Hello, I'm [NAMA KAMU]!</h1>
+
+      <h2>Communication Student</h2>
+
+      <p>
+        Welcome to my personal website! This is a little space
+        where you can get to know me, explore my interests,
+        and see some of my works and experiences.
+      </p>
+
+      <a href="#profile" class="btn">Get to Know Me</a>
+      <a href="#links" class="btn">My Portfolio ↗</a>
+    </div>
+
+    <!-- GANTI LINK FOTO DI BAWAH INI -->
+    <img
+      src="https://placehold.co/400x500/f5d8eb/765879?text=My+Photo"
+      alt="Foto profil"
+      class="hero-image"
+    >
+  </header>
+
+  <!-- THREE THINGS ABOUT ME -->
+  <section id="things">
+    <div class="section-title">
+      <h2>Three Things About Me ✿</h2>
+      <p>A little glimpse of who I am.</p>
+    </div>
+
+    <div class="things">
+
+      <div class="thing-card">
+        <div class="emoji">🎤</div>
+        <h3>Communication</h3>
+        <p>I love public speaking, hosting, and sharing information.</p>
+      </div>
+
+      <div class="thing-card">
+        <div class="emoji">📸</div>
+        <h3>Creative</h3>
+        <p>I enjoy creating content, journalism, and new ideas.</p>
+      </div>
+
+      <div class="thing-card">
+        <div class="emoji">🌷</div>
+        <h3>Growth</h3>
+        <p>I love learning new things and exploring new experiences.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MY LINKS -->
+  <section class="links" id="links">
+    <div class="section-title">
+      <h2>Find Me Here! ♡</h2>
+      <p>Let's connect and explore my works.</p>
+    </div>
+
+    <div class="link-container">
+
+      <a href="https://sites.google.com/"
+         target="_blank" class="link-card">
+        <div class="emoji">🌐</div>
+        <h3>Google Sites</h3>
+        <span>Visit My Website ↗</span>
+      </a>
+
+      <a href="https://www.canva.com/"
+         target="_blank" class="link-card">
+        <div class="emoji">🎨</div>
+        <h3>My Canva Portfolio</h3>
+        <span>Explore My Works ↗</span>
+      </a>
+
+      <a href="https://www.instagram.com/"
+         target="_blank" class="link-card">
+        <div class="emoji">📷</div>
+        <h3>Instagram</h3>
+        <span>Follow My Journey ↗</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ABOUT ME / DATA DIRI -->
+  <section id="profile">
+    <div class="section-title">
+      <h2>About Me ♡</h2>
+      <p>Get to know me a little better.</p>
+    </div>
+
+    <div class="about-box">
+
+      <h2>Hi, Nice to Meet You!</h2>
+
+      <p>
+        Halo! Aku [NAMA KAMU], seorang mahasiswa yang memiliki
+        ketertarikan dalam bidang komunikasi, jurnalistik,
+        broadcasting, dan dunia kreatif. Aku senang mencoba
+        hal baru, mengembangkan kemampuan, serta mendapatkan
+        pengalaman dari berbagai kegiatan.
+      </p>
+
+      <p>
+        Bagiku, setiap pengalaman adalah kesempatan untuk
+        belajar, berkembang, dan mengenal lebih banyak hal.
+        Melalui website ini, aku ingin membagikan sedikit
+        cerita tentang diriku dan karya-karya yang pernah aku buat.
+      </p>
+
+      <div class="profile-data">
+
+        <div>
+          <strong>👤 Nama Lengkap</strong>
+          [Isi Nama Lengkap]
+        </div>
+
+        <div>
+          <strong>📍 Asal Daerah</strong>
+          [Isi Kota Asal]
+        </div>
+
+        <div>
+          <strong>🎓 Universitas</strong>
+          Sekolah Tinggi Multi Media (STMM)
+        </div>
+
+        <div>
+          <strong>📚 Program Studi</strong>
+          Manajemen Informasi Komunikasi
+        </div>
+
+        <div>
+          <strong>💡 Minat</strong>
+          Journalism & Broadcasting
+        </div>
+
+        <div>
+          <strong>✨ Keahlian</strong>
+          Public Speaking, Hosting, MC
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Made with ♡ by [NAMA KAMU]</p>
+    <p>© 2026 My Personal Website</p>
+  </footer>
+
+</body>
+</html>
